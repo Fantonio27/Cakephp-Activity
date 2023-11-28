@@ -61,9 +61,9 @@
         <p><?= $this->Paginator->counter(__('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')) ?></p>
     </div>
 </div> -->
-<div class="w-4/5 h-max">
+<div class="w-4/5 h-max m-auto view">
     <div class="flex justify-between items-center my-10">
-        <h1 class="text-5xl font-bold">Users Table</h1>
+        <h1 class="table-title">Users Table</h1>
         <a class="rounded-full create-btn" href="users/add">Create User</a>
     </div>
     <div class="bg-white p-14 rounded-3xl shadow-sm">
@@ -72,9 +72,7 @@
                 <thead class="">
                     <tr>
                         <th>
-                            <center>
-                                <?= $this->Paginator->sort('user_id', '<span>User ID</span>', ['escape' => false]) ?>
-                            </center>
+                            <?= $this->Paginator->sort('user_id', '<span>User ID</span>', ['escape' => false]) ?>
                         </th>
                         <th>
                             <?= $this->Paginator->sort('fullname', '<span>Fullname</span>', ['escape' => false]) ?>
@@ -153,9 +151,9 @@
                         </td> -->
                             <td class="actions">
                                 <center>
-                                    <?= $this->Html->link(__('View'), ['action' => 'view', $user->user_id])?>
-                                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $user->user_id])?>
-                                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $user->user_id], ['confirm' => __('Are you sure you want to delete # {0}?', $user->user_id)]) ?>
+                                    <?= $this->Html->Link('View', ['action' => 'view', $user->user_id], ['class'=>'action']) ?>
+                                    <?= $this->Html->Link('Edit', ['action' => 'edit', $user->user_id], ['class'=>'action']) ?>
+                                    <?= $this->Form->postLink(__('Delete'), ['style' => 'color: red !important','action' => 'delete', $user->user_id], ['confirm' => __('Are you sure you want to delete # {0}?', $user->user_id),'class'=>'action']) ?>
                                 </center>
                             </td>
                         </tr>

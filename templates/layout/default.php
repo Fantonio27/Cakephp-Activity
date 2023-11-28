@@ -39,38 +39,43 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@300&family=Quicksand:wght@600&display=swap');
 
-    *{
+    * {
         font-family: 'Poppins', sans-serif;
     }
 
-    h1{
+    .view < h1 {
         color: rgb(34, 34, 59, 0.85);
         letter-spacing: 0.5px;
         font-family: 'Quicksand', sans-serif;
     }
 
-    th, span, center, .action{
+    .view th,
+    .view span,
+    .view center,
+    .action {
         letter-spacing: 0.5px;
         font-size: 15px;
         font-family: 'Quicksand', sans-serif;
         color: #67568c;
+        text-align: center;
     }
 
-    td{
+    .view td {
         font-size: 15px;
         color: #1f1235;
         font-family: 'Quicksand', sans-serif;
         color: rgb(74, 78, 105, 0.9);
+        text-align: center;
     }
 
-    .create-btn{
+    .create-btn {
         font-family: 'Quicksand', sans-serif;
         padding: 10px 25px;
         letter-spacing: 0.5px;
         cursor: pointer;
         background-color: #ff6e6c;
-        color: #1f1235;
-        /* color: white; */
+        /* color: #1f1235; */
+        color: white;
         transition: 0.5s;
         font-size: 15px;
         position: relative;
@@ -78,19 +83,102 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         transition: 0.3s ease;
     }
 
-    .create-btn:hover{
-        color: #1f1235;
+    .create-btn:hover {
+        color: white;
         top: -5px;
         transition: 0.3s ease;
     }
 
+    .users{
+        padding: 50px;
+    }
+
+    .title {
+        font-size: 26px;
+        font-weight: bold;
+        /* font-family: 'Poppins', sans-serif; */
+        letter-spacing: 1px;
+        color: #ff6e6c;
+        padding-bottom: 10px;
+        /* border-bottom: 2px solid rgb(103,86,140,0.3); */
+        /* margin-bottom: 10px; */
+    }
+
+    .p1{
+        font-family: 'Quicksand', sans-serif;
+        font-weight: bold;
+        letter-spacing: 0.5px;
+        margin-bottom: 8px;
+    }
+    
+    .p2{
+        font-size: 14px;
+        font-family: 'Quicksand', sans-serif;
+        font-weight: bold;  
+        color: #1f1235;  
+    }
+
+    .radio{
+        margin: 10px 0px;
+    }
+
+    .btn-div{
+        /* padding: 10px; */
+        margin: 30px auto 0px;
+        display: flex;
+        justify-content: right;
+        gap: 10px;
+    }
+
+    .table-title{
+        color: #67568C;
+        font-size: 32px;
+        font-weight: bold;
+        letter-spacing: 1px;
+        /* font-family: 'Poppins', sans-serif; */
+    }
+
+    .cancel{
+        border: 1px solid #dee2e6;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        padding: 0px 20px;
+        font-size: 14px;
+        transition: 0.5s;
+    }
+
+    .cancel:hover{
+        background-color: #f8f9fa;
+    }
+
+    .nav{
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        margin-bottom: 25px;
+    }
+
+    .items{
+        border-radius: 20px;
+        border: 1px solid #dee2e6;
+        padding: 3px 15px;
+        transition: 0.5s;
+        font-size: 14.5px;
+        font-family: 'Quicksand', sans-serif;
+    }
+
+    .items:hover{
+        background-color: #f8f9fa;
+        color: #1f1235;
+    }
 </style>
+
 <body style="background-color: #f8f5f2">
-    <div class="flex h-screen " style="">
-        <div class="flex-initial w-96 rounded-r-3xl" style="background-color: #078080">1</div>
-        <div class="flex-auto flex justify-center my-40">
-                <?= $this->Flash->render()  ?>
-                <?= $this->fetch('content')  ?>
+    <div class="h-screen">
+        <div class="pt-20 pb-40">
+            <?= $this->Flash->render() ?>
+            <?= $this->fetch('content') ?>
         </div>
     </div>
     <!-- <nav class="top-nav">
@@ -114,6 +202,3 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 </body>
 
 </html>
-
-<!-- #$this->Flash->render() 
-             #$this->fetch('content')  -->

@@ -4,32 +4,49 @@
  * @var \App\Model\Entity\User $user
  */
 ?>
-<div class="row">
-    <aside class="column">
+<div class="w-2/5 h-max m-auto">
+    <!-- <aside class="column">
         <div class="side-nav">
             <h4 class="heading"><?= __('Actions') ?></h4>
             <?= $this->Html->link(__('List Users'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
         </div>
-    </aside>
-    <div class="column column-80">
-        <div class="users form content">
+    </aside> -->
+    <div class="">
+        <div class="users form content rounded-3xl">
             <?= $this->Form->create($user) ?>
-            <fieldset>
-                <legend><?= __('Add User') ?></legend>
+            <h1 class="title">Create New User</h1>
+            <div class="grid xl:grid-cols-2 gap-x-10 gap-y-7">
                 <?php
-                    echo $this->Form->control('fullname');
-                    echo $this->Form->control('username');
-                    echo $this->Form->control('email');
-                    echo $this->Form->control('password');
-                    echo $this->Form->control('date_of_birth');
-                    echo $this->Form->control('gender');
-                    echo $this->Form->control('address');
-                    echo $this->Form->control('bio');
-                    echo $this->Form->control('contact_no');
-                    echo $this->Form->control('status');
+                $sizes = ['Active' => 'Active', 'Inactive' => 'Inactive'];
+                echo '<div><p class="p1">Fullname</p>' . $this->Form->text('fullname', ['class' => 'p2']) . '</div>';
+                echo '<div><p class="p1">Username</p>' . $this->Form->text('username', ['class' => 'p2']) . '</div>';
+                echo '<div><p class="p1">Email Address</p>' . $this->Form->email('email', ['class' => 'p2']) . '</div>';
+                echo '<div><p class="p1">Password</p>' . $this->Form->password('password', ['class' => 'p2']) . '</div>';
+                echo '<div><p class="p1">Date of Birth</p>' . $this->Form->date('date_of_birth', ['class' => 'p2']) . '</div>';
+                echo '<div><p class="p1">Contact No</p>' . $this->Form->number('contact_no', ['class' => 'p2']) . '</div>';
                 ?>
-            </fieldset>
-            <?= $this->Form->button(__('Submit')) ?>
+            </div>
+
+            <div class="grid gap-5 mt-8">
+                <?php
+                $sizes = ['Active' => 'Active', 'Inactive' => 'Inactive'];
+                echo '<div><p class="p1">Address</p>' . $this->Form->textarea('address', ['class' => 'p-3 p2']) . "</div>";
+                echo '<div><p class="p1">Bio</p>' . $this->Form->textarea('bio', ['class' => 'p-3 p2']) . "</div>";
+                echo '<div><p class="p1">Gender</p>' .
+                    $this->Form->radio('gender', [
+                        ['value' => 'Male', 'text' => '  Male', 'label' => ['class' => 'p2 radio']],
+                        ['value' => 'Female', 'text' => '  Female', 'label' => ['class' => 'p2 radio']],
+                        ['value' => 'Prefer not to answer', 'text' => '  Prefer not to answer', 'label' => ['class' => 'p2 radio']],
+                    ])
+                    . "</div>";
+                echo '<div><p class="p1">Status</p>' . $this->Form->select('status', $sizes, ['default' => 'Active', 'class' => 'p2 pl-3']) . "</div>";
+                ?>
+            </div>
+            <div class="btn-div">
+                <?= $this->Form->submit(__('Submit')) ?>
+                <a href="../users" class="cancel" >Cancel</a>
+            </div>
+
             <?= $this->Form->end() ?>
         </div>
     </div>
