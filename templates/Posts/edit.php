@@ -5,32 +5,38 @@
  * @var string[]|\Cake\Collection\CollectionInterface $users
  */
 ?>
-<div class="row">
-    <aside class="column">
-        <div class="side-nav">
-            <h4 class="heading"><?= __('Actions') ?></h4>
-            <?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $post->post_id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $post->post_id), 'class' => 'side-nav-item']
-            ) ?>
-            <?= $this->Html->link(__('List Posts'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
-        </div>
-    </aside>
-    <div class="column column-80">
-        <div class="posts form content">
+<div class="w-2/5 h-max m-auto">
+    <div>
+        <div class="users form content rounded-3xl">
             <?= $this->Form->create($post) ?>
-            <fieldset>
-                <legend><?= __('Edit Post') ?></legend>
+            <h1 class="title">Edit Post</h1>
+            <div class="grid gap-5 mt-8">
                 <?php
-                    echo $this->Form->control('user_id', ['options' => $users]);
-                    echo $this->Form->control('title');
-                    echo $this->Form->control('content');
-                    echo $this->Form->control('category');
-                    echo $this->Form->control('status');
+                $status = ['Active' => 'Active', 'Inactive' => 'Inactive'];
+
+                echo '<div><p class="p1">Username</p>' . $this->Form->select('username', $users, ['class' => 'p2 pl-3']) . "</div>";
+                echo '<div><p class="p1">Title</p>' . $this->Form->text('title', ['class' => 'p2', 'maxLength'=>'32' , 'minLength'=>'2']) . '</div>';
+                echo '<div><p class="p1">Category</p>' .
+                    $this->Form->radio('category', [
+                        ['value' => 'Technology', 'text' => '  Technology', 'label' => ['class' => 'p2 radio']],
+                        ['value' => 'Lifestyle', 'text' => '  Lifestyle', 'label' => ['class' => 'p2 radio']],
+                        ['value' => 'Travel', 'text' => '  Travel', 'label' => ['class' => 'p2 radio']],
+                        ['value' => 'Health and Wellness', 'text' => '  Health and Wellness', 'label' => ['class' => 'p2 radio']],
+                        ['value' => 'Food and Cooking', 'text' => '  Food and Cooking', 'label' => ['class' => 'p2 radio']],
+                        ['value' => 'Fashion', 'text' => '  Fashion', 'label' => ['class' => 'p2 radio']],
+                        ['value' => 'Entertainment', 'text' => '  Entertainment', 'label' => ['class' => 'p2 radio']],
+                        ['value' => 'Others', 'text' => '  Others', 'label' => ['class' => 'p2 radio']],
+                    ])
+                    . "</div>";
+                    echo '<div><p class="p1">Content</p>' . $this->Form->textarea('content', ['class' => 'p-3 p2', 'maxLength'=>'200' , 'minLength'=>'1']) . "</div>";
+                echo '<div><p class="p1">Status</p>' . $this->Form->select('status', $status, ['default' => 'Active', 'class' => 'p2 pl-3']) . "</div>";
                 ?>
-            </fieldset>
-            <?= $this->Form->button(__('Submit')) ?>
+            </div>
+            <div class="btn-div">
+                <?= $this->Form->submit(__('Submit')) ?>
+                <a href="../../posts" class="cancel" >Cancel</a>
+            </div>
+
             <?= $this->Form->end() ?>
         </div>
     </div>

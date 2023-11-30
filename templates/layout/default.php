@@ -176,27 +176,16 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
 <body style="background-color: #f8f5f2">
     <div class="h-screen">
+        <div class="mt-7 fixed w-full">
+            <div class="w-max m-auto">
+                <?= $this->Flash->render() ?>
+            </div>
+        </div>
+    
         <div class="pt-20 pb-40">
-            <?= $this->Flash->render() ?>
             <?= $this->fetch('content') ?>
         </div>
     </div>
-    <!-- <nav class="top-nav">
-        <div class="top-nav-title">
-            <a href="<?= $this->Url->build('/') ?>"><span>Cake</span>PHP</a>
-        </div>
-        <div class="top-nav-links">
-            <p class="text-red-600">svsav</p>
-            <a target="_blank" rel="noopener" href="https://book.cakephp.org/5/" class="">Documentations</a>
-            <a target="_blank" rel="noopener" href="https://api.cakephp.org/">API</a>
-        </div>
-    </nav>
-    <main class="main">
-        <div class="container">
-   
-            
-        </div>
-    </main> -->
     <footer>
     </footer>
 </body>

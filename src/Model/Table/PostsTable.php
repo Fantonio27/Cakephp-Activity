@@ -48,7 +48,7 @@ class PostsTable extends Table
         $this->addBehavior('Timestamp');
 
         $this->belongsTo('Users', [
-            'foreignKey' => 'user_id',
+            'foreignKey' => 'username',
             'joinType' => 'INNER',
         ]);
     }
@@ -62,8 +62,7 @@ class PostsTable extends Table
     public function validationDefault(Validator $validator): Validator
     {
         $validator
-            ->integer('user_id')
-            ->notEmptyString('user_id');
+            ->notEmptyString('username');
 
         $validator
             ->scalar('title')
@@ -82,8 +81,8 @@ class PostsTable extends Table
             ->requirePresence('category', 'create')
             ->notEmptyString('category');
 
-        $validator
-            ->requirePresence('image', 'create');
+        // $validator
+            // ->requirePresence('image', 'create');
         //     ->notEmptyFile('image');
 
         $validator
@@ -104,7 +103,7 @@ class PostsTable extends Table
      */
     public function buildRules(RulesChecker $rules): RulesChecker
     {
-        $rules->add($rules->existsIn('user_id', 'Users'), ['errorField' => 'user_id']);
+        $rules->add($rules->existsIn('username', 'Users'), ['errorField' => 'username']);
 
         return $rules;
     }

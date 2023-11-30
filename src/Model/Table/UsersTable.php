@@ -95,11 +95,6 @@ class UsersTable extends Table
             ->notEmptyString('address');
 
         $validator
-            ->scalar('bio')
-            ->requirePresence('bio', 'create')
-            ->notEmptyString('bio');
-
-        $validator
             ->integer('contact_no')
             ->requirePresence('contact_no', 'create')
             ->notEmptyString('contact_no');
