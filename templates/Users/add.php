@@ -13,7 +13,7 @@
                 <?php
                 $sizes = ['Active' => 'Active', 'Inactive' => 'Inactive'];
                 echo '<div><p class="p1">Fullname</p>' . $this->Form->text('fullname', ['class' => 'p2', 'maxLength'=>'32' , 'minLength'=>'2', 'pattern' => '[a-zA-Z]+', 'title' => 'Letter Only' ]) . '</div>';
-                echo '<div><p class="p1">Username</p>' . $this->Form->text('username', ['class' => 'p2', 'maxLength'=>'16' , 'minLength'=>'2', 'pattern' => '[a-zA-Z0-9]+', 'title' => 'Letter and Number only']) . '</div>';
+                echo '<div><p class="p1">Username</p>' . $this->Form->text('username', ['class' => 'p2', 'maxLength'=>'16' , 'minLength'=>'2', 'pattern' => '[a-zA-Z0-9]+', 'title' => 'Letter or Number only']) . '</div>';
                 echo '<div><p class="p1">Email Address</p>' . $this->Form->email('email', ['class' => 'p2']) . '</div>';
                 echo '<div><p class="p1">Password</p>' . $this->Form->password('password', ['class' => 'p2', 'maxLength'=>'16' , 'minLength'=>'8']) . '</div>';
                 echo '<div><p class="p1">Date of Birth</p>' . $this->Form->date('date_of_birth', ['class' => 'p2']) . '</div>';
